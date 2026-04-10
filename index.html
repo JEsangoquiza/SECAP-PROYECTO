@@ -16,7 +16,6 @@
     .modal { animation: fadeIn 0.3s ease-out; }
     @keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
 
-    /* Logo MATECH con colores */
     .matech-logo {
       font-size: 2.25rem;
       font-weight: 800;
@@ -65,10 +64,10 @@
     </div>
   </div>
 
-  <!-- ==================== DASHBOARD PRINCIPAL ==================== -->
+  <!-- ==================== DASHBOARD ==================== -->
   <div id="dashboard-screen" class="hidden min-h-screen">
 
-    <!-- ==================== HEADER ==================== -->
+    <!-- Header -->
     <header class="bg-slate-900 border-b border-slate-700">
       <div class="max-w-7xl mx-auto px-8 py-4 flex items-center justify-between">
         <div class="flex items-center gap-10">
@@ -89,7 +88,7 @@
 
     <div class="max-w-7xl mx-auto px-8 py-8">
 
-      <!-- ==================== SECCIÓN DASHBOARD ==================== -->
+      <!-- DASHBOARD -->
       <div id="section-dashboard">
         <h1 class="text-3xl font-bold mb-8">Monitoreo en Tiempo Real</h1>
         
@@ -145,7 +144,7 @@
         </div>
       </div>
 
-      <!-- ==================== SECCIÓN CONFIGURACIÓN ==================== -->
+      <!-- CONFIGURACIÓN -->
       <div id="section-config" class="hidden">
         <h1 class="text-3xl font-bold mb-8">Configuración del Sistema</h1>
         <div class="bg-slate-900 border border-slate-700 rounded-3xl p-8">
@@ -175,7 +174,7 @@
         </div>
       </div>
 
-      <!-- ==================== SECCIÓN INFORMES ==================== -->
+      <!-- INFORMES -->
       <div id="section-informes" class="hidden">
         <h1 class="text-3xl font-bold mb-8">Generar Informe</h1>
         <div class="bg-slate-900 border border-slate-700 rounded-3xl p-8">
@@ -230,7 +229,7 @@
         </div>
       </div>
 
-      <!-- ==================== SECCIÓN HISTÓRICO ==================== -->
+      <!-- HISTÓRICO -->
       <div id="section-historico" class="hidden">
         <div class="flex justify-between items-center mb-8">
           <h1 class="text-3xl font-bold">Histórico de Eventos</h1>
@@ -266,7 +265,7 @@
     </div>
   </div>
 
-  <!-- ==================== MODAL AGREGAR COMPUERTA ==================== -->
+  <!-- Modal Agregar -->
   <div id="modal-agregar" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
     <div class="modal bg-slate-900 rounded-3xl shadow-2xl w-full max-w-md border border-slate-700 p-8">
       <h2 class="text-2xl font-semibold mb-6 text-center">Agregar Nueva Compuerta</h2>
@@ -288,7 +287,6 @@
   </div>
 
   <script>
-    // ==================== VARIABLES GLOBALES ====================
     let currentUser = null;
     let compuertas = [
       { id: 1, nombre: "Comp. 1", estado: "Abierta", alarma: "Sin Alarma", zona: "Zona 1", ultima: "Hace 4 min." },
@@ -304,7 +302,6 @@
       { id: 2, fecha: "2026-04-08 14:28:15", tipo: "alarma", compuerta: "Comp. 2", detalle: "Error en motor detectado" }
     ];
 
-    // ==================== FUNCIONES PRINCIPALES ====================
     function agregarAlHistorico(tipo, compuerta, detalle) {
       const fecha = new Date().toLocaleString('es-ES');
       historico.unshift({ id: Date.now(), fecha, tipo, compuerta, detalle });
@@ -600,14 +597,12 @@
       }
     }
 
-    // Atajo Enter para login
     document.addEventListener("keypress", function(e) {
       if (e.key === "Enter") {
         if (!document.getElementById("login-screen").classList.contains("hidden")) login();
       }
     });
 
-    // Inicializar
     window.onload = () => {
       if (localStorage.getItem("currentUser")) {
         document.getElementById("login-screen").classList.add("hidden");
